@@ -21,3 +21,4 @@ use App\Http\Controllers\CourseController;
 Route::get('/courses', [CourseController::class, 'index']);
 Route::get('/courses/{course}', [CourseController::class, 'getCourseById']);
 
+Route::view('/{path?}', 'app');
