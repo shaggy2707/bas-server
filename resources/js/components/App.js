@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { BrowserRouter } from 'react-router-dom';
+import PageRoutes from './PageRoutes';
 
 function App() {
     const [userData, setUserData] = useState({
@@ -17,32 +19,41 @@ function App() {
         fetchData();
     }, []);
 
+    console.log(userData);
     return (
-        <div>
-            {userData.data.map(course => {
-                return (
-                    <div className="container" key={course.id}>
-                        <h2>
-                            {course.course}
-                        </h2>
-                        <div className="users">
-                            {course.users.map(user => {
-                                return (
-                                    <div key={user.id}>
-                                        {user.name}
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
+        // <div>
+        //     {userData.data.map(course => {
+        //         return (
+        //             <div className="container my-3" key={course.id}>
+        //                 <h2 className="text-xl">
+        //                     {course.course}
+        //                 </h2>
+        //                 <p>{course.description}</p>
+        //                 <div className="users my-2">
+        //                     <h3 className="text-lg">Members</h3>
+        //                     {course.users.map(user => {
+        //                         return (
+        //                             <div key={user.id} className="columns-2 px-1">
+        //                                 <div className="w-full">{user.name}</div>
+        //                             </div>
+        //                         )
+        //                     })}
+        //                 </div>
+        //             </div>
+        //         )
+        //     })}
+        // </div>
+        <PageRoutes />
     );
 }
 
 export default App;
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<App />, document.getElementById('app'));
+    ReactDOM.render(
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>,
+        document.getElementById('app')
+    );
 }
