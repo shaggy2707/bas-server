@@ -1,8 +1,9 @@
 import React from "react";
+import BannerBlock from "../pageparts/BannerBlock";
 import FeatureBlocks from "../pageparts/FeatureBlocks";
 
 export default function Homepage() {
-    const featureBlocks = [
+    const featuringBlocks = [
         {
             widthFraction: '1/4',
             imgLink: './images/locatie.png',
@@ -27,12 +28,14 @@ export default function Homepage() {
             headerText: 'Voer jouw locatie in',
             featureText: 'Vind alle klinieken en artsen bij jou in de buurt.'
         }
+        /*<FeatureBlocks features={featuringBlocks} />*/
     ];
     return (
         <div>
-            <div className="container my-3">
+            <BannerBlock />
+            <div className="home-features container my-3">
                 <h3 className="text-xl bold text-center font-bold">Hoe werkt het</h3>
-                <FeatureBlocks features={featureBlocks} />
+
             </div>
         </div>
     )
